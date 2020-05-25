@@ -2,7 +2,7 @@
 from urllib.request import urlopen
 import re
 
-data = urlopen('http://localhost/nginx-status').read()
+data = urlopen('http://127.0.0.1/nginx-status').read()
 
 params = {}
 
@@ -19,6 +19,8 @@ for line in data.decode().split("\n"):
         pass
 
 dataorder = ["Active", "Reading", "Writing", "Waiting", "Requests"]
+
+print("<<<nginx>>>\n")
 
 for param in dataorder:
     if param == "Active":
